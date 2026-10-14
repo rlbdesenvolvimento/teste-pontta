@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="header">
+        <h2>Clientes</h2>
+        <a mat-flat-button routerLink="/customers/new">
+            <mat-icon>add</mat-icon>
+            Novo cliente
+        </a>
+    </div>
+
+    @if (loading()) {
+        <mat-progress-bar mode="indeterminate" />
+    }
+
+    <table mat-table [dataSource]="customers()" class="table mat-elevation-z1">
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef> Nome </th>
+            <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef> Sobrenome </th>
+            <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef class="actions"> Ações </th>
+            <td mat-cell *matCellDef="let element" class="actions">
+                <button mat-icon-button (click)="editar(element)" matTooltip="Editar" aria-label="Editar">
+                    <mat-icon>edit</mat-icon>
+                </button>
+
+                <button mat-icon-button class="delete" (click)="excluir(element)" matTooltip="Excluir" aria-label="Excluir">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell empty" [attr.colspan]="displayedColumns.length">
+                @if (!loading()) { Nenhum cliente cadastrado. }
+            </td>
+        </tr>
+    </table>
+</div>

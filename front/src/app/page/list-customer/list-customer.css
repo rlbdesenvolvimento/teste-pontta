@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.header h2 {
+  margin: 0;
+  font: var(--mat-sys-headline-small);
+}
+
+table {
+  width: 100%;
+}
+
+.actions {
+  width: 120px;
+  text-align: right;
+}
+
+.delete {
+  color: var(--mat-sys-error);
+}
+
+.empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--mat-sys-on-surface-variant);
+}

@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: back
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      show-sql: true
+      format_sql: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pontta?useSSL=false&serverTimezone=UTC
+    username: pontta
+    password: pontta
+    driver-class-name: org.postgresql.Driver
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    baseline-version: 0

@@ -1,0 +1,25 @@
+# Back
+back/target/
+back/.idea/
+
+# Front
+front/node_modules/
+front/dist/
+front/.angular/
+
+# Variáveis de ambiente e logs
+.env
+.env.*
+*.log
+
+# IDEs
+/.idea/
+/.vscode/
+*.iml
+
+# Playwright / ferramentas locais
+.playwright-mcp/
+
+# Sistema
+.DS_Store
+Thumbs.db

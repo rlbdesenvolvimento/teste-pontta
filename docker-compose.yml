@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: pontta-postgres
+    environment:
+      POSTGRES_DB: pontta
+      POSTGRES_USER: pontta
+      POSTGRES_PASSWORD: pontta
+    ports:
+      - "5432:5432"
+    volumes:
+      - pontta-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pontta -d pontta"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pontta-data:
